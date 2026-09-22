@@ -1,0 +1,703 @@
+using System;
+using System.Diagnostics.Contracts;
+using System.Runtime.InteropServices;
+
+namespace TaskSelector
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("Выберите блок [1-8] :");
+            Console.ForegroundColor = ConsoleColor.Gray;
+
+            bool validBlock = int.TryParse(Console.ReadLine(), out int blockSelection);
+
+            if (!validBlock || blockSelection < 1 || blockSelection > 8)
+            {
+                Console.WriteLine("Неверный ввод блока. Пожалуйста, введите число от 1 до 8.");
+                return;
+            }
+
+            switch (blockSelection)
+            {
+                case 1:
+                    LocalTask1();
+                    break;
+
+                case 2:
+                    LocalTask2();
+                    break;
+
+                case 3:
+                    LocalTask3();
+                    break;
+
+                case 4:
+                    LocalTask4();
+                    break;
+
+                case 5:
+                    LocalTask5();
+                    break;
+
+                case 6:
+                    LocalTask6();
+                    break;
+
+                case 7:
+                    LocalTask7();
+                    break;
+
+                case 8:
+                    LocalTask8();
+                    break;
+
+                default:
+                    Console.WriteLine("Другой блок, не реализованный в этом коде.");
+                    break;
+            }
+        }
+
+        static void LocalTask1()
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("Выберите задание [1-10] :");
+            Console.ForegroundColor = ConsoleColor.Gray;
+
+            bool validTask = int.TryParse(Console.ReadLine(), out int taskSelection);
+
+            if (!validTask || taskSelection < 1 || taskSelection > 10)
+            {
+                Console.WriteLine("Неверный ввод задания. Пожалуйста, введите число от 1 до 10.");
+                return;
+            }
+
+            switch (taskSelection)
+            {
+                case 1:
+                    int x1 = 17 / 5;
+                    int y1 = 17 % 5;
+                    Console.WriteLine($"Ответ: X = {x1}, Y = {y1}");
+                    break;
+                case 2:
+                    int a1 = 5;
+                    int res1 = ++a1 * 2;
+                    Console.WriteLine($"Ответ: res = {res1}");
+                    break;
+                case 3:
+                    int a2 = 5;
+                    int res2 = a2++ * 2;
+                    Console.WriteLine($"Ответ: res = {res2}");
+                    break;
+                case 4:
+                    double a3 = 7 / 2.0;
+                    double b1 = 7.0 / 2;
+                    Console.WriteLine($"Ответ: {a3} и {b1}");
+                    break;
+                case 5:
+                    int a4 = -15 % 4;
+                    Console.WriteLine($"Ответ: {a4}");
+                    break;
+                case 6:
+                    int x2 = 10;
+                    x2 = x2++ + ++x2;
+                    Console.WriteLine($"Ответ: {x2}");
+                    break;
+                case 7:
+                    int max1 = int.MaxValue;
+                    int res3 = checked(max1 + 1);
+                    Console.WriteLine($"Ответ: {res3}");
+                    break;
+                case 8:
+                    int max2 = int.MaxValue;
+                    int res4 = unchecked(max2 + 1);
+                    Console.WriteLine($"Ответ: {res4}");
+                    break;
+                case 9:
+                    double a5 = 1.0 / 0.0;
+                    double b2 = 0.0 / 0.0;
+                    Console.WriteLine($"Ответ: {a5} и {b2}");
+                    break;
+                case 10:
+                    int a6 = 8;
+                    int b3 = 3;
+                    int c = a6 - b3 * 2 + a6 / b3;
+                    Console.WriteLine($"Ответ: {c}");
+                    break;
+                default:
+                    Console.WriteLine("Другой номер задания.");
+                    break;
+            }
+        }
+
+        static void LocalTask2()
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("Выберите задание [1-10]:");
+            Console.ForegroundColor = ConsoleColor.Gray;
+
+            bool validTask = int.TryParse(Console.ReadLine(), out int taskSelection);
+
+            switch (taskSelection)
+            {
+                case 1:
+                    bool first = 5 > 3;
+                    bool second = 5 >= 5;
+                    Console.WriteLine($"Результат задания 1: {first}, {second}");
+                    break;
+
+                case 2:
+                    string hello = "hello";
+                    string hello2 = "hello";
+                    bool result = hello == hello2;
+                    Console.WriteLine($"Результат задания 2: {result}");
+                    break;
+
+                case 3:
+                    bool otvet = double.NaN == double.NaN;
+                    Console.WriteLine($"Результат задания 3: {otvet}");
+                    break;
+                case 4:
+                    object a = new int[] { 1 };
+                    object b = new int[] { 1 };
+                    bool r = a == b;
+
+                    bool sult = r;
+                    Console.WriteLine(sult);
+                    break;
+                case 5:
+                    bool result1 = 10 != 10.0;
+                    Console.WriteLine(result1);
+                    break;
+                case 6:
+                    string null1 = "null";
+                    string null2 = "null";
+                    bool result2 = null1 == null2;
+                    Console.WriteLine(result2);
+                    break;
+                case 7:
+                    bool moga1 = 3 < 5;
+                    bool moga2 = 10 >= 20;
+                    bool result3 = moga1 == moga2;
+                    Console.WriteLine(result3);
+                    break;
+                case 8:
+                    bool res = 4 <= 4 && 5 > 2;
+                    Console.WriteLine(res);
+                    break;
+                case 9:
+                    char c = 'b';
+                    bool res1 = c > 'a';
+                    Console.WriteLine(res1);
+                    break;
+                case 10:
+                    bool r1 = -0.0 == 0.0;
+                    Console.WriteLine(r1);
+                    break;
+                default:
+                    Console.WriteLine("Другой номер задания.");
+                    break;
+            }
+        }
+
+        static void LocalTask3()
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("Выберите задание [1-10]:");
+            Console.ForegroundColor = ConsoleColor.Gray;
+
+            bool validTask = int.TryParse(Console.ReadLine(), out int taskSelection);
+
+            switch (taskSelection)
+            {
+                case 1:
+                    bool c1 = !true || false && true;
+                    Console.WriteLine(c1);
+                    break;
+                case 2:
+                    bool c2 = false && Foo();
+                    Console.WriteLine($"Ответ: {c2}");
+                    break;
+                case 3:
+                    bool c3 = false & Foo();
+                    Console.WriteLine(c3);
+                    break;
+                case 4:
+                    bool c4 = true ^ false ^ true;
+                    Console.WriteLine(c4);
+                    break;
+                case 5:
+                    bool c5 = !(5 > 2 || 3 < 1);
+                    Console.WriteLine(c5);
+                    break;
+                case 6:
+                    bool a = true;
+                    bool b = false;
+                    bool c6 = a && !b || b && !a;
+                    Console.WriteLine(c6);
+                    break;
+                case 7:
+                    int x = 42;
+                    bool c7 = true || (x / 0 == 1);
+                    Console.WriteLine(c7);
+                    break;
+                case 8:
+                    int c8 = false & (10 / 0 == 1);
+                    Console.WriteLine(c8);
+                    break;
+                case 9:
+                    bool A = true;
+                    bool B = false;
+                    bool original = !(A && B);
+                    bool deMorgan = (!A) || (!B);
+                    Console.WriteLine($"A: {A}, B: {B}");
+                    Console.WriteLine($"Эквивалентность: {original == deMorgan}");
+                    break;
+                case 10:
+                    bool A1 = true;
+                    bool B1 = true;
+                    bool original1 = !(A1 && B1);
+                    bool deMorgan1 = (!A1) || (!B1);
+                    Console.WriteLine($"A: {A1}, B: {B1}");
+                    Console.WriteLine($"Эквивалентность: {original1 == deMorgan1}");
+                    break;
+
+                default:
+                    Console.WriteLine("Другой номер задания.");
+                    break;
+
+            }
+        }
+
+        private static bool Foo()
+        {
+            throw new NotImplementedException();
+        }
+
+        static void LocalTask4()
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("Выберите задание [1-10]:");
+            Console.ForegroundColor = ConsoleColor.Gray;
+
+            bool validTask = int.TryParse(Console.ReadLine(), out int taskSelection);
+
+
+            switch (taskSelection)
+            {
+                case 1:
+                    int a = 5, b = 3;
+                    int r = a & b;
+                    int w = 4;
+                    Console.WriteLine($"{Convert.ToString(a, 2).PadLeft(w, '0')} & {Convert.ToString(b, 2).PadLeft(w, '0')} = {Convert.ToString(r, 2).PadLeft(w, '0')} (десятичное {r})");
+                    break;
+                case 2:
+                    int a1 = 5, b1 = 3;
+                    int r1 = a1 | b1;
+                    int w1 = 4;
+                    Console.WriteLine($"{Convert.ToString(a1, 2).PadLeft(w1, '0')} & {Convert.ToString(b1, 2).PadLeft(w1, '0')} = {Convert.ToString(r1, 2).PadLeft(w1, '0')} (десятичное {r1})");
+                    break;
+                case 3:
+                    int a2 = 5, b2 = 3;
+                    int r2 = a2 ^ b2;
+                    int w2 = 4;
+                    Console.WriteLine($"{Convert.ToString(a2, 2).PadLeft(w2, '0')} & {Convert.ToString(b2, 2).PadLeft(w2, '0')} = {Convert.ToString(r2, 2).PadLeft(w2, '0')} (десятичное {r2})");
+                    break;
+                case 4:
+                    Console.WriteLine(~0);
+                    break;
+                case 5:
+                    int a3 = 1 << 4;
+                    Console.WriteLine(a3);
+                    break;
+                case 6:
+                    int a4 = 40 >> 2;
+                    Console.WriteLine(a4);
+                    break;
+                case 7:
+                    int n = 13;
+                    bool a5 = (n & 8) != 0;
+                    Console.WriteLine(a5);
+                    break;
+                case 8:
+                    int n1 = 1;
+                    n1 |= (1 << 2);
+                    Console.WriteLine(n1);
+                    break;
+                case 9:
+                    int n2 = 26;
+                    n2 &= ~(1 << 4);
+                    Console.WriteLine(n2);
+                    Console.WriteLine(Convert.ToString(n2, 2).PadLeft(8, '0'));
+                    break;
+                case 10:
+                    int n3 = (-16) >> 2;
+                    Console.WriteLine(n3);
+                    break;
+                default:
+                    Console.WriteLine("Другой номер задания.");
+                    break;
+            }
+        }
+
+        static void LocalTask5()
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("Выберите задание [1-10]:");
+            Console.ForegroundColor = ConsoleColor.Gray;
+
+            bool validTask = int.TryParse(Console.ReadLine(), out int taskSelection);
+
+            switch (taskSelection)
+            {
+                case 1:
+                    int x = 7;
+                    x += 5;
+                    Console.WriteLine($"Эквивалентен: {x}");
+                    break;
+                case 2:
+                    int a = 10;
+                    a *= 2 + 3;
+                    Console.WriteLine($"Отвтет: {a}");
+                    break;
+                case 3:
+                    int x1 = 12;
+                    x1 >>= 2;
+                    Console.WriteLine($"Ответ: {x1}");
+                    break;
+                case 4:
+                    string x2 = null;
+                    x2 ??= "default";
+                    Console.WriteLine(x2);
+                    break;
+                case 5:
+                    string str = null;
+                    str ??= "default";
+                    str ??= "custom";
+                    Console.WriteLine(str);
+                    break;
+                case 6:
+                    byte b = 1;
+                    b += 2;
+                    Console.WriteLine(b);
+                    break;
+                case 7:
+                    int a1 = 5;
+                    int b1 = 10;
+                    int c2 = 0;
+                    int c3 = a1 = b1;
+                    Console.WriteLine(c3);
+                    break;
+                case 8:
+                    int mask = 1;
+                    mask <<= 3;
+                    mask |= 2;
+                    Console.WriteLine(mask);
+                    break;
+                case 9:
+                    int x5 = 15;
+                    x5 %= 4;
+                    Console.WriteLine(x5);
+                    break;
+                case 10:
+                    int x6 = 7;
+                    x6 ^= 7;
+                    Console.WriteLine(x6);
+                    break;
+                default:
+                    Console.WriteLine("Другой номер задания.");
+                    break;
+            }
+        }
+
+        static void LocalTask6()
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("Выберите задание [1-10]:");
+            Console.ForegroundColor = ConsoleColor.Gray;
+
+            bool validTask = int.TryParse(Console.ReadLine(), out int taskSelection);
+
+            switch (taskSelection)
+            {
+                case 1:
+                    int score = 75;
+                    string res = score >= 60 ? "Pass" : "Fail";
+                    Console.WriteLine(res);
+                    break;
+                case 2:
+                    int x = 5;
+                    int y = (x > 10) ? 100 : (x > 2) ? 50 : 0;
+                    Console.WriteLine(y);
+                    break;
+                case 3:
+                    bool condition = true;
+                    var result = condition ? 10 : 15.5;
+                    Console.WriteLine(result);
+                    Console.WriteLine(result.GetType());
+                    break;
+                case 4:
+                    string s = null;
+                    Console.WriteLine(s?.Length);
+                    break;
+                case 5:
+                    string s1 = "abc";
+                    string s2 = null;
+
+                    int? r1 = s1?.Length;
+                    int? r2 = s2?.Length;
+
+                    Console.WriteLine(r1);
+                    Console.WriteLine(r2);
+                    break;
+                case 6:
+                    string name = null;
+                    string res1 = name ?? "Anonymous";
+                    Console.WriteLine($"{name} {res1}");
+                    break;
+                case 7:
+                    string a = null, b = "User", c = "Admin";
+                    string res2 = a ?? b ?? c;
+                    Console.WriteLine(res2);
+                    break;
+                case 8:
+                    bool cond = false;
+                    int res3 = cond ? (10 / 0) : 42;
+                    Console.WriteLine(res3);
+                    break;
+                case 9:
+                    var x7 = condition ? 10 : "text";
+                    Console.WriteLine(x7);
+                    break;
+                case 10:
+                    int? count = null;
+                    int res4 = count?.GetHashCode() ?? -1;
+                    Console.WriteLine(res4);
+                    break;
+
+            }
+        }
+        static void LocalTask7()
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("Выберите задание [1-10]:");
+            Console.ForegroundColor = ConsoleColor.Gray;
+
+            bool validTask = int.TryParse(Console.ReadLine(), out int taskSelection);
+
+            switch (taskSelection)
+            {
+                case 1:
+                    object obj = "Hello";
+                    bool check = obj is string;
+                    Console.WriteLine(check);
+                    break;
+                case 2:
+                    object a5 = 123;
+                    string s = a5 as string;
+                    Console.WriteLine(s);
+                    break;
+                case 3:
+                    bool condition = true;
+                    var result = condition ? 10 : 15.5;
+                    Console.WriteLine(result);
+                    Console.WriteLine(result.GetType());
+                    break;
+                case 4:
+                    bool equal = typeof(int) == typeof(Int32);
+                    Console.WriteLine(equal);
+                    break;
+                case 5:
+                    int size = Marshal.SizeOf(typeof(long));
+                    Console.WriteLine(size);
+                    break;
+                case 6:
+                    Console.WriteLine(null is string);
+                    object o = null;
+                    Console.WriteLine(o is string);
+                    Console.WriteLine(null is null);
+                    break;
+                case 7:
+                    object x = null;
+                    bool b = x is null;
+                    Console.WriteLine(b);
+                    break;
+                case 8:
+                    double d = 3.99;
+                    int i = (int)d;
+                    Console.WriteLine(i);
+                    break;
+                case 9:
+                    object o1 = 42;
+                    if (o1 is int val && val > 40)
+                        Console.WriteLine(val);
+                    break;
+                case 10:
+                    int a = default(int);
+                    string s1 = default(string);
+
+                    Console.WriteLine(a);
+                    Console.WriteLine(s1 == null);
+                    break;
+
+            }
+        }
+        static void LocalTask8()
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("Выберите задание [1-35]:");
+            Console.ForegroundColor = ConsoleColor.Gray;
+
+            bool validTask = int.TryParse(Console.ReadLine(), out int taskSelection);
+
+            switch (taskSelection)
+            {
+                case 1:
+                    bool r1 = (5 > 3) && !(10 <= 2) || (4 == 5);
+                    Console.WriteLine("Task 1 = " + r1); 
+                    break;
+                case 2:
+                    bool r2 = !(true && false) ^ (true || false && false);
+                    Console.WriteLine("Task 2 = " + r2); 
+                    break;
+                case 3:
+                    bool r3 = (10 & 6) == 2 && (10 | 6) == 14;
+                    Console.WriteLine("Task 3 = " + r3);
+                    break;
+                case 4:
+                    bool r4 = (15 >> 1) == 7 && (7 << 2) == 28;
+                    Console.WriteLine("Task 4 = " + r4);
+                    break;
+                case 5:
+                    bool r5 = (8 > 5) && (3 + 2 * 4 == 11) && !(false || !true);
+                    Console.WriteLine("Task 5 = " + r5); 
+                    break;
+                case 6:
+                    bool r6 = (true || false) && (false || true) ^ (true && !false);
+                    Console.WriteLine("Task 6 = " + r6);
+                    break;
+                case 7:
+                    bool r7 = (100 / 10 == 10) && (100 % 30 == 10) && !(5 - 5 != 0);
+                    Console.WriteLine("Task 7 = " + r7);
+                    break;
+                case 8:
+                    bool r8 = (4 ^ 4) == 0 && (4 ^ 0) == 4 && (0 ^ 0) == 0;
+                    Console.WriteLine("Task 8 = " + r8);
+                    break; 
+                case 9:
+                    bool result9 = !(5 != 5) && ((3 >= 3) || (10 / 0 == 1));
+                    Console.WriteLine("Task 9 = " + result9);
+                    break;
+                case 10:
+                    bool result10 = (false && (10 / 0 == 1)) || (true && (20 > 15));
+                    Console.WriteLine("Task 10 = " + result10);
+                    break;
+                case 11:
+                    bool r11 = (12 & 10) > 5 || (12 | 10) < 15 && !(3 == 3);
+                    Console.WriteLine($"Task 11 = {r11}");
+                    break;
+                case 12:
+                    bool r12 = ((20 >> 2) == 5) ^ ((5 << 1) == 11);
+                    Console.WriteLine($"Task 12 = {r12}");
+                    break;
+                case 13:
+                    bool r13 = !(!(true || false) && (true && !false));
+                    Console.WriteLine($"Task 13 = {r13}");
+                    break;
+                case 14:
+                    bool r14 = (7 > 2 ? 10 : 20) == 10 && (3 < 1 ? 5 : 15) == 15;
+                    Console.WriteLine($"Task 14 = {r14}");
+                    break;
+                case 15:
+                    bool r15 = (5 & 1) == 1 && (6 & 1) == 0 && (7 & 1) == 1;
+                    Console.WriteLine($"Task 15 = {r15}");
+                    break;
+                case 16:
+                    bool r16 = ((10 > 5 ? true : false) ^ (3 > 8 ? true : false)) && !false;
+                    Console.WriteLine($"Task 16 = {r16}");
+                    break;
+                case 17:
+                    bool r17 = !((5 > 2 && 10 > 20) || (3 == 3 && 4 <= 4));
+                    Console.WriteLine($"Task 17 = {r17}");
+                    break;
+                case 18:
+                    bool r18 = ((1 << 3) == 8) && ((16 >> 4) == 1) && ((2 << 2) == 8);
+                    Console.WriteLine($"Task 18 = {r18}");
+                    break;
+                case 19:
+                    bool r19 = ((10 & 7) == 2) || ((10 | 7) == 15) ^ !(4 > 1);
+                    Console.WriteLine($"Task 19 = {r19}");
+                    break;
+                case 20:
+                    bool r20 = false || true && false || true && !false;
+                    Console.WriteLine($"Task 20 = {r20}");
+                    break;
+                case 21:
+                    bool r21 = (25 % 4 == 1) && (17 / 3 == 5) && (17 % 3 == 2);
+                    Console.WriteLine($"Task 21 = {r21}");
+                    break;
+                case 22:
+                    bool r22 = ((5 ^ 3 ^ 3) == 5) && ((10 ^ 0) == 10);
+                    Console.WriteLine($"Task 22 = {r22}");
+                    break;
+                case 23:
+                    bool r23 = (true ? (false ? 1 : 2) : (true ? 3 : 4)) == 2;
+                    Console.WriteLine($"Tasl 23 = {r23}");
+                    break;
+                case 24:
+                    bool r24 = !(true && !(false || !false));
+                    Console.WriteLine($"Task 24 = {r24}");
+                    break;
+                case 25:
+                    bool r25 = ((~0 == -1) && (~(-1) == 0));
+                    Console.WriteLine($"Task 25 = {r25}");
+                    break;
+                case 26:
+                    bool r26 = ((8 & 4) == 0) && ((8 | 4) == 12) && ((8 ^ 4) == 12);
+                    Console.WriteLine($"Task = {r26}");
+                    break;
+                case 27:
+                    bool r27 = !(10 >= 10) || (5 < 3) && (2 == 2) || !(false);
+                    Console.WriteLine($"Task 27 = {r27}");
+                    break;
+                case 28:
+                    bool r28 = ((15 & ~1) == 14) && ((14 | 1) == 15);
+                    Console.WriteLine($"Task 28  = {r28}");
+                    break;
+                case 29:
+                    bool r29 = ((true || false) ? (false && true ? 10 : 20) : 30) == 20;
+                    Console.WriteLine($"Task 29 = {r29}");
+                    break;
+                case 30:
+                    bool r30 = ((10 > 2) && (5 < 9)) ^ (!(4 >= 5) && (6 != 7));
+                    Console.WriteLine($"Task 30 = {r30}");
+                    break;
+                case 31:
+                    bool r31 = (7 & 3 & 1) == 1 && (7 | 3 | 1) == 7;
+                    Console.WriteLine($"Task 31 = {r31}");
+                    break;
+                case 32:
+                    bool r32 = ((10 > 5 && 3 < 1) || (8 == 8 && !(5 > 10))) && (4 + 4 == 8);
+                    Console.WriteLine($"Task 32 = {r32}");
+                    break;
+                case 33:
+                    bool r33 = !((!(true && false) || !(true || false)) && !false);
+                    Console.WriteLine($"Task 33 = {r33}");
+                    break;
+                case 34:
+                    bool r34 = ((32 >> 3 == 4) && (4 << 3 == 32)) ^ ((15 & 7) == 7 && (15 | 7) == 15);
+                    Console.WriteLine($"Task 34 = {r34}");
+                    break;
+                case 35:
+                    bool r35 = ((5 > 3 ? (2 > 1 ? true : false) : false) && !((10 > 20) || (30 < 15)));
+                    Console.WriteLine($"Task 35 = {r35}");
+                    break;
+            }
+        }
+    }
+}
+    
+
+
