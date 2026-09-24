@@ -1,5 +1,6 @@
 
 # Практическая работа №2: Операторы языка C#
+...
 
 using System;
 using System.Diagnostics.Contracts;
