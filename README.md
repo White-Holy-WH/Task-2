@@ -1,11 +1,11 @@
 
 # Практическая работа №2: Операторы языка C#
 ...
-
+---
 using System;
 using System.Diagnostics.Contracts;
 using System.Runtime.InteropServices;
-
+---
 namespace TaskSelector
 {
     internal class Program
