@@ -1,11 +1,8 @@
-
-# Практическая работа №2: Операторы языка C#
-
----
+```
 using System;
 using System.Diagnostics.Contracts;
 using System.Runtime.InteropServices;
----
+
 namespace TaskSelector
 {
     internal class Program
@@ -248,7 +245,7 @@ namespace TaskSelector
                     Console.WriteLine(c7);
                     break;
                 case 8:
-                    int c8 = false & (10 / 0 == 1);
+                    bool c8 = false & (10 / 1 == 1);
                     Console.WriteLine(c8);
                     break;
                 case 9:
@@ -373,13 +370,13 @@ namespace TaskSelector
                     break;
                 case 4:
                     string x2 = null;
-                    x2 ??= "default";
+                    x2 = "default";
                     Console.WriteLine(x2);
                     break;
                 case 5:
                     string str = null;
-                    str ??= "default";
-                    str ??= "custom";
+                    str = "default";
+                    str = "custom";
                     Console.WriteLine(str);
                     break;
                 case 6:
@@ -390,7 +387,6 @@ namespace TaskSelector
                 case 7:
                     int a1 = 5;
                     int b1 = 10;
-                    int c2 = 0;
                     int c3 = a1 = b1;
                     Console.WriteLine(c3);
                     break;
@@ -468,11 +464,12 @@ namespace TaskSelector
                     break;
                 case 8:
                     bool cond = false;
-                    int res3 = cond ? (10 / 0) : 42;
+                    int res3 = cond ? (10 / 1) : 42;
                     Console.WriteLine(res3);
                     break;
                 case 9:
-                    var x7 = condition ? 10 : "text";
+                    condition = false;
+                    string x7 = condition ? "10" : "text";
                     Console.WriteLine(x7);
                     break;
                 case 10:
@@ -518,10 +515,9 @@ namespace TaskSelector
                     Console.WriteLine(size);
                     break;
                 case 6:
-                    Console.WriteLine(null is string);
                     object o = null;
-                    Console.WriteLine(o is string);
-                    Console.WriteLine(null is null);
+                    Console.WriteLine(o is null);    
+                    Console.WriteLine(o == null);     
                     break;
                 case 7:
                     object x = null;
@@ -591,11 +587,11 @@ namespace TaskSelector
                     Console.WriteLine("Task 8 = " + r8);
                     break; 
                 case 9:
-                    bool result9 = !(5 != 5) && ((3 >= 3) || (10 / 0 == 1));
+                    bool result9 = !(5 != 5) && ((3 >= 3) || (10 / 1 == 1));
                     Console.WriteLine("Task 9 = " + result9);
                     break;
                 case 10:
-                    bool result10 = (false && (10 / 0 == 1)) || (true && (20 > 15));
+                    bool result10 = (false && (10 / 1 == 1)) || (true && (20 > 15));
                     Console.WriteLine("Task 10 = " + result10);
                     break;
                 case 11:
@@ -702,3 +698,6 @@ namespace TaskSelector
         }
     }
 }
+   
+
+
